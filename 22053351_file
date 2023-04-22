@@ -3,7 +3,7 @@ pipeline {
       stages {
           stage('22053351 STG1') {
           steps {
-		input('Push change to production web server?")
+		input('Push change to production web server?')
             echo '22053351 STG1: Push change to production web server?'
           }
         }
