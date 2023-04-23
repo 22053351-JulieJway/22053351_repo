@@ -10,6 +10,11 @@ pipeline {
         }
 	
 	stage('22053351 STG2') {
+	when {
+		not {
+			branch "Development NOT updated"
+			}
+		}
 	    steps {
                  sh '''#!/bin/bash
                  targets=puppetclient1;
