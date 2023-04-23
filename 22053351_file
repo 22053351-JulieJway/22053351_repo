@@ -9,6 +9,7 @@ pipeline {
         }
         }
 	
+	stage('22053351 STG2') {
 	    steps {
                  sh '''#!/bin/bash
                  targets=puppetclient1;
@@ -17,6 +18,7 @@ pipeline {
                  '''
                  echo "Development container updated"
           }
+	  }
           
 
 }
