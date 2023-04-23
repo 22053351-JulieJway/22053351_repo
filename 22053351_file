@@ -7,7 +7,7 @@ pipeline {
             echo '22053351 STG1: Push change to production web server?'
           }
         }
-        }
+        
 	
 	stage('22053351 STG2') {
 	when {
