@@ -17,7 +17,7 @@ pipeline {
 		}
 	    steps {
                  sh '''#!/bin/bash
-                 targets=puppetclient1;
+                 targets=22053351-websvr;
                  locate_script='/tmp/22053351/clone/22053351_repo/index.html';
                  bolt script run $locate_script -t $targets -u clientadm -p user123 --no-host-key-check --run-as root;
                  '''
