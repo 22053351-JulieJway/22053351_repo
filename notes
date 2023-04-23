@@ -1,0 +1,1 @@
+:  wget --content-disposition 'https://pm.puppetlabs.com/puppet-agent/2021.5.0/7.14.0/repos/deb/bionic/puppet7/puppet-agent_7.14.0-1bionic_amd64.deb'
