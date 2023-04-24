@@ -24,7 +24,17 @@ pipeline {
                  echo "Development container updated"
           }
 	  }
+
+
+      stage('22053351 STG3') {
+          steps {
+		input('Proceed to test production web service?')
+            echo '22053351 STG3: Proceed to test production web service?'
+          }
+
+
           
 
 }
 }
+
