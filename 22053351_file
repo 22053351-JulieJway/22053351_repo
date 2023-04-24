@@ -1,6 +1,7 @@
 pipeline {
       agent any
-      stages {
+ 
+ stages {
           stage('22053351 STG1') {
           steps {
 		input('Push change to production web server?')
@@ -35,6 +36,7 @@ pipeline {
 
           
 
+}
 }
 }
 
