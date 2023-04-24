@@ -1,0 +1,295 @@
+
+###############################################################################
+# LOCALHOST.CFG - SAMPLE OBJECT CONFIG FILE FOR MONITORING THIS MACHINE
+#
+#
+# NOTE: This config file is intended to serve as an *extremely* simple
+#       example of how you can create configuration entries to monitor
+#       the local (Linux) machine.
+#
+###############################################################################
+
+
+
+###############################################################################
+#
+# HOST DEFINITION
+#
+###############################################################################
+
+# Define a host for the local machine
+
+
+
+
+
+define host {
+        use                     linux-server
+        host_name               apacheweb
+        alias                   apacheweb.localdomain
+        address                 192.168.100.11
+
+
+}
+
+
+
+
+define host {
+
+    use                     linux-server            ; Name of host template to use
+                                                    ; This host definition will inherit all variables that are defined
+                                                    ; in (or inherited by) the linux-server host template definition.
+    host_name               JulieJway-Database-Server
+    alias                   JulieJway-Database-Server
+    address                 192.168.100.12
+}
+
+
+
+define host {
+
+    use                     linux-server            ; Name of host template to use
+                                                    ; This host definition will inherit all variables that are defined
+                                                    ; in (or inherited by) the linux-server host template definition.
+    host_name               JulieJway-Web-Server
+    alias                   JulieJway-Web-Server
+    address                 192.168.100.11
+}
+
+
+define host {
+
+    use                     linux-server            ; Name of host template to use
+                                                    ; This host definition will inherit all variables that are defined
+                                                    ; in (or inherited by) the linux-server host template definition.
+    host_name               JulieJway-Nagios-Server
+    alias                   JulieJway-Nagios-Server
+    address                 192.168.100.11
+}
+
+
+
+
+
+
+
+
+
+###############################################################################
+#
+# HOST GROUP DEFINITION
+#
+###############################################################################
+
+# Define an optional hostgroup for Linux machines
+
+
+define hostgroup {
+
+  
+  hostgroup_name          JulieJway-Database-Server           ; The name of the hostgroup
+alias                   JulieJway-Database-Server           ; Long name of the group 
+    members                 JulieJway-Database-Server               ; Comma separated list of hosts that belong to th$
+}
+
+
+define hostgroup {
+
+
+  hostgroup_name          JulieJway-Web-Server           ; The name of the hostgroup
+alias                   JulieJway-Web-Server           ; Long name of the group
+    members                 JulieJway-Web-Server               ; Comma separated list of hosts that belong to th$
+}
+
+
+
+define hostgroup {
+
+
+  hostgroup_name          JulieJway-Nagios-Server           ; The name of the hostgroup
+alias                   JulieJway-Nagios-Server           ; Long name of the group
+    members                 JulieJway-Nagios-Server               ; Comma separated list of hosts that belong to th$
+}
+
+
+
+
+
+
+
+
+
+
+
+
+###############################################################################
+#
+# SERVICE DEFINITIONS
+#
+###############################################################################
+
+# Define a service to "ping" the local machine
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Database-Server
+    service_description     PING
+    check_command           check_ping!100.0,20%!500.0,60%
+}
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Web-Server
+    service_description     PING
+    check_command           check_ping!100.0,20%!500.0,60%
+}
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Nagios-Server
+    service_description     PING
+    check_command           check_ping!100.0,20%!500.0,60%
+}
+
+
+
+
+
+
+# Define a service to check the disk space of the root partition
+# on the local machine.  Warning if < 33% free, critical if
+# < 25% free space on partition.
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Database-Server
+    service_description     Root Partition
+    check_command           check_local_disk!33%!25%!/
+}
+
+
+
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Web-Server
+    service_description     Current Load
+    check_command           check_local_load!5.0,4.0,3.0!10.0,6.0,4.0
+}
+
+
+
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Nagios-Server
+    service_description     Current Load
+    check_command           check_local_load!5.0,4.0,3.0!10.0,6.0,4.0
+}
+
+
+
+
+
+
+
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Database-Server
+    service_description     SSH
+    check_command           check_ssh
+    notifications_enabled   0
+}
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Web-Server
+    service_description     SSH
+    check_command           check_ssh
+    notifications_enabled   0
+}
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Nagios-Server
+    service_description     SSH
+    check_command           check_ssh
+    notifications_enabled   0
+}
+
+
+
+
+
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Database-Server
+    service_description     HTTP
+    check_command           check_http
+    notifications_enabled   0
+}
+
+
+
+
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Web-Server
+    service_description     HTTP
+    check_command           check_http
+    notifications_enabled   0
+}
+
+
+
+define service {
+
+    use                     local-service           ; Name of service template to use
+    host_name               JulieJway-Nagios-Server
+    service_description     HTTP
+    check_command           check_http
+    notifications_enabled   0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
