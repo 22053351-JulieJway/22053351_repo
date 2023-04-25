@@ -4,7 +4,6 @@ puppet resource package apache2 ensure=present
 puppet resource service apache2 ensure=running
 puppet resource file /tmp/22053351/clone ensure=absent force=true
 puppet resource file /tmp/22053351/clone ensure=directory
-puppet resource file /tmp/22053351/clone ensure=directory
 cd /tmp/22053351/clone
 git clone https://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@github.com/22053351_repo/22053351_repo.git
 cp -p /tmp/22053351/clone/22053351_repo/index.html /var/www/html
