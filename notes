@@ -1,1 +1,11 @@
 :  wget --content-disposition 'https://pm.puppetlabs.com/puppet-agent/2021.5.0/7.14.0/repos/deb/bionic/puppet7/puppet-agent_7.14.0-1bionic_amd64.deb'
+
+
+root@puppetclient1:  wget --content-disposition 'https://pm.puppetlabs.com/puppet-agent/2021.5.0/7.14.0/repos/deb/bionic/puppet7/puppet-agent_7.14.0-1bionic_amd64.deb'
+
+root@puppetclient1:  dpkg -i puppet-agent_7.14.0-1bionic_amd64.deb
+
+2.4 Save container as image to local docker repository
+
+root@sddo-vm:  docker commit puppetclient1 puppetclient-image
+
