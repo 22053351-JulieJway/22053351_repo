@@ -22,7 +22,7 @@ pipeline {
 		puppet resource file /tmp/clone ensure=directory;
 		cd  /tmp/clone;
 		git clone https://github.com/22053351-JulieJway/22053351_repo.git;
-                 targets=22053351-websvr;
+                 targets=22053351-websvrv5;
                  locate_script='/tmp/clone/22053351_repo/index.html';
                  bolt script run $locate_script -t $targets -u clientadm -p user123 --no-host-key-check --run-as root;
                  '''
