@@ -43,8 +43,33 @@ pipeline {
 }
 
 
+      stage('22053351 STG4') {
+          steps {
+	  	sh ''' #!/bin/bash
+		curl -Is http://22053351-websvr.localdomain | head -n 1 > /tmp/web-test-result
+		cat /tmp/web-test-result
+		'''
+	    echo '22053351 STG4: Production web server testing completed'
+          }
+}
 
 
+      stage('22053351 STG5') {
+          steps {
+	input('Proceed or Abort?')
+            echo '22053351 STG5: Web server testing result has been inspected'
+	  
+          }
+}
+
+
+      stage('22053351 STG6') {
+          steps {
+
+            echo '22053351 STG6: Production Operation is successful'
+	  
+          }
+}
 
 
 
